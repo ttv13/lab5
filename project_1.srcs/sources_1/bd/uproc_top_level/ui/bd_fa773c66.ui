@@ -1,0 +1,79 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.771429",
+   "Default View_TopLeft":"-394,0",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port port-id_clk -pg 1 -lvl 0 -x 0 -y 890 -defaultsOSRD
+preplace port port-id_btn -pg 1 -lvl 0 -x 0 -y 950 -defaultsOSRD
+preplace port port-id_vga_vs -pg 1 -lvl 5 -x 1600 -y 1070 -defaultsOSRD
+preplace port port-id_vga_hs -pg 1 -lvl 5 -x 1600 -y 1050 -defaultsOSRD
+preplace port port-id_RXD -pg 1 -lvl 5 -x 1600 -y 520 -defaultsOSRD
+preplace port port-id_TXD -pg 1 -lvl 0 -x 0 -y 550 -defaultsOSRD
+preplace port port-id_rts -pg 1 -lvl 5 -x 1600 -y 40 -defaultsOSRD
+preplace port port-id_cts -pg 1 -lvl 5 -x 1600 -y 20 -defaultsOSRD
+preplace portBus vga_r -pg 1 -lvl 5 -x 1600 -y 910 -defaultsOSRD
+preplace portBus vga_b -pg 1 -lvl 5 -x 1600 -y 930 -defaultsOSRD
+preplace portBus vga_g -pg 1 -lvl 5 -x 1600 -y 950 -defaultsOSRD
+preplace inst regs_0 -pg 1 -lvl 2 -x 470 -y 380 -defaultsOSRD
+preplace inst vga_ctrl_0 -pg 1 -lvl 3 -x 900 -y 1010 -defaultsOSRD
+preplace inst framebuffer_0 -pg 1 -lvl 2 -x 470 -y 740 -defaultsOSRD
+preplace inst clock_div_0 -pg 1 -lvl 1 -x 120 -y 690 -defaultsOSRD
+preplace inst clock_div_50_0 -pg 1 -lvl 1 -x 120 -y 790 -defaultsOSRD
+preplace inst debounce_0 -pg 1 -lvl 1 -x 120 -y 940 -defaultsOSRD
+preplace inst uart_0 -pg 1 -lvl 4 -x 1420 -y 530 -defaultsOSRD
+preplace inst irMem -pg 1 -lvl 4 -x 1420 -y 740 -defaultsOSRD
+preplace inst dMem -pg 1 -lvl 4 -x 1420 -y 310 -defaultsOSRD
+preplace inst my_alu_0 -pg 1 -lvl 2 -x 470 -y 110 -defaultsOSRD
+preplace inst pixel_pusher_0 -pg 1 -lvl 4 -x 1420 -y 940 -defaultsOSRD
+preplace inst controls_0 -pg 1 -lvl 3 -x 900 -y 240 -defaultsOSRD
+preplace netloc btn_0_1 1 0 1 NJ 950
+preplace netloc clock_div_50_0_div 1 1 3 260 910 640 910 NJ
+preplace netloc clk_1 1 0 4 20 630 240 10 630 630 1250
+preplace netloc clock_div_0_div 1 1 3 220 210 620 500 NJ
+preplace netloc controls_0_aluA 1 1 3 290 520 NJ 520 1070
+preplace netloc controls_0_aluB 1 1 3 300 530 NJ 530 1060
+preplace netloc controls_0_aluOp 1 1 3 260 560 NJ 560 1080
+preplace netloc my_alu_0_output 1 2 1 660 110n
+preplace netloc debounce_0_dbnc 1 1 3 230 920 650 620 1230J
+preplace netloc controls_0_rID1 1 1 3 270 570 NJ 570 1170
+preplace netloc controls_0_rID2 1 1 3 280 580 NJ 580 1160
+preplace netloc controls_0_wr_enR1 1 1 3 330 540 NJ 540 1090
+preplace netloc controls_0_wr_enR2 1 1 3 250 610 NJ 610 1180
+preplace netloc controls_0_regwD1 1 1 3 310 590 NJ 590 1110
+preplace netloc controls_0_regwD2 1 1 3 320 600 NJ 600 1100
+preplace netloc regs_0_dout1 1 2 1 610 190n
+preplace netloc regs_0_dout2 1 2 1 640 210n
+preplace netloc controls_0_fbRST 1 1 3 290 890 710J 860 1150
+preplace netloc controls_0_fbAddr1 1 1 3 320 870 NJ 870 1140
+preplace netloc pixel_pusher_0_addr 1 1 4 300 1110 NJ 1110 NJ 1110 1570
+preplace netloc controls_0_wr_en 1 1 3 310 900 NJ 900 1120
+preplace netloc controls_0_fbDout1 1 1 3 330 880 NJ 880 1130
+preplace netloc framebuffer_0_dout1 1 2 1 670 230n
+preplace netloc framebuffer_0_dout2 1 2 2 610 760 1220J
+preplace netloc vga_ctrl_0_hcount 1 3 1 1100 970n
+preplace netloc vga_ctrl_0_vid 1 3 1 1250 950n
+preplace netloc vga_ctrl_0_vs 1 3 2 1240 1070 NJ
+preplace netloc vga_ctrl_0_hs 1 3 2 1250J 1050 NJ
+preplace netloc pixel_pusher_0_r 1 4 1 NJ 910
+preplace netloc pixel_pusher_0_b 1 4 1 NJ 930
+preplace netloc pixel_pusher_0_g 1 4 1 NJ 950
+preplace netloc uart_0_tx 1 4 1 NJ 520
+preplace netloc controls_0_sendUART 1 3 1 1230 400n
+preplace netloc controls_0_charSend 1 3 1 1210 420n
+preplace netloc uart_0_ready 1 2 3 700 490 1220J 420 1570
+preplace netloc uart_0_newChar 1 2 3 710 510 1190J 200 1580
+preplace netloc uart_0_charRec 1 2 3 720 640 NJ 640 1570
+preplace netloc rx_0_1 1 0 4 NJ 550 NJ 550 NJ 550 1190J
+preplace netloc controls_0_dAddr 1 3 1 N 280
+preplace netloc controls_0_dOut 1 3 1 N 320
+preplace netloc dMem_douta 1 2 2 690 480 1200
+preplace netloc controls_0_d_wr_en 1 3 1 1080 300n
+preplace netloc controls_0_irAddr 1 3 1 1240 260n
+preplace netloc irMem_douta 1 2 2 680 770 NJ
+levelinfo -pg 1 0 120 470 900 1420 1600
+pagesize -pg 1 -db -bbox -sgen -80 0 1730 1120
+"
+}
+
