@@ -39,7 +39,7 @@ entity my_alu is
         a : in std_logic_vector (15 downto 0);
         b : in std_logic_vector (15 downto 0);
         op : in std_logic_vector (3 downto 0);
-        output : out std_logic_vector (15 downto 0)
+        aluout : out std_logic_vector (15 downto 0)
   );
 end my_alu;
 
@@ -57,71 +57,71 @@ if (rising_edge (clk)) then
         case op is 
     
         when "0000" => -- add a + b  
-            output <= std_logic_vector (unsigned (a) + unsigned (b));
+            aluout <= std_logic_vector (unsigned (a) + unsigned (b));
             
         when "0001" => -- minus a + b
-            output <= std_logic_vector (unsigned (a) - unsigned (b));
+            aluout <= std_logic_vector (unsigned (a) - unsigned (b));
             
         when "0010" => -- add a + 1
-            output <= std_logic_vector (unsigned (a) + 1);
+            aluout <= std_logic_vector (unsigned (a) + 1);
             
         when "0011" => -- minus a - 1
-            output <= std_logic_vector (unsigned (a) - 1);
+            aluout <= std_logic_vector (unsigned (a) - 1);
             
         when "0100" => -- minus 0 - a
-            output <= std_logic_vector (0 - unsigned (a));
+            aluout <= std_logic_vector (0 - unsigned (a));
             
         when "0101" => -- shift left logical A << 1 
-             output <= std_logic_vector (shift_left(unsigned (a) , 1));
+             aluout <= std_logic_vector (shift_left(unsigned (a) , 1));
          
         when "0110" => -- shift right logical a >> 1
-            output <= std_logic_vector (shift_right (unsigned (a) , 1));
+            aluout <= std_logic_vector (shift_right (unsigned (a) , 1));
          
         when "0111" => -- shift right arithmetic A >>> 1
-            output <= std_logic_vector (shift_right (signed (a) , 1));
+            aluout <= std_logic_vector (shift_right (signed (a) , 1));
          
         when "1000" => -- a and b
-            output <= a and b;
+            aluout <= a and b;
             
         when "1001" => -- a or b
-            output <= a or b;
+            aluout <= a or b;
             
         when "1010" => -- a xor b
-            output <= a xor b;
+            aluout <= a xor b;
             
         when "1011" => -- Signed A < B = out[0]
             if ( signed (a) < signed (b) ) then 
-                output (0) <= '1';
+                aluout (0) <= '1';
             else 
-                output (0) <= '0';
+                aluout (0) <= '0';
             end if;
             
         when "1100" => -- signed A > B = out [0]
             if ( signed (a) > signed (b) ) then 
-                output (0) <= '1';
+                aluout (0) <= '1';
             else 
-                output (0) <= '0';
+                aluout (0) <= '0';
             end if;
         
         when "1101" => -- a = b
             if ( a = b) then 
-                output (0) <= '1';
+                aluout (0) <= '1';
             else 
-                output (0) <= '0';
+                aluout (0) <= '0';
             end if;
             
         when "1110" => -- a < b 
             if (a < b) then 
-                output (0) <= '1';
+                aluout (0) <= '1';
             else 
-                output (0) <= '0';
+                aluout (0) <= '0';
             end if;
             
         when "1111" => -- a > b 
             if (a > b) then 
-                output (0) <= '1';
+                aluout (0) <= '1';
             else 
-                output (0) <= '0';
+                aluout (0) <= '0';
             end if;
             
         end case;

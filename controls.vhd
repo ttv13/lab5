@@ -90,11 +90,14 @@ signal reg3_addr_sig : std_logic_vector (4 downto 0);
 
 signal immediate_sig : std_logic_vector (15 downto 0);
 
-signal reg1_d_sig : std_logic_vector (31 downto 0);
-signal reg2_d_sig : std_logic_vector (31 downto 0);
-signal reg3_d_sig : std_logic_vector (31 downto 0);
+signal reg1_d_sig : std_logic_vector (15 downto 0);
+signal reg2_d_sig : std_logic_vector (15 downto 0);
+signal reg3_d_sig : std_logic_vector (15 downto 0);
 
 signal alu_result_sig : std_logic_vector (15 downto 0);
+
+signal lw_sig : std_logic_vector (15 downto 0);
+signal sw_sig : std_logic_vector (15 downto 0);
 begin
 
 
@@ -189,9 +192,11 @@ if rising_edge (clk) and en = '1' then
         elsif op_sig (2 downto 0) = "010" then
             curr <= ori;
         elsif op_sig (2 downto 0) = "011" then
+            lw_sig <= std_logic_vector (unsigned (immediate_sig) + unsigned (reg2_d_sig));
             curr <= lw;
         else
             rID2 <= reg1_addr_sig;
+            sw_sig <= std_logic_vector (unsigned (immediate_sig) + unsigned (reg2_d_sig));
             curr <= sw;
         end if;
         
@@ -315,7 +320,7 @@ if rising_edge (clk) and en = '1' then
 
     when lw => 
         
-        dAddr <= std_logic_vector (unsigned (immediate_sig) + unsigned (reg2_d_sig)) (14 downto 0);
+        dAddr <= lw_sig (14 downto 0);
         curr <= lwwait;
          
     when lwwait => 
@@ -325,7 +330,7 @@ if rising_edge (clk) and en = '1' then
         
     when sw => 
         
-        dAddr <= std_logic_vector (unsigned (immediate_sig) + unsigned (reg2_d_sig)) (14 downto 0);
+        dAddr <= sw_sig (14 downto 0);
         d_wr_en <= '1';
         
         curr <= swwait;
@@ -357,6 +362,7 @@ if rising_edge (clk) and en = '1' then
         
     when finish => 
         rID1 <= "00001";
+        fbRST <= '0';
         curr <= fetch;
     end case; 
 end if;--rising edg

@@ -32,7 +32,7 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity framebuffer is
-  Port (clk1 , en1, en2 : in std_logic;
+  Port (clk1 , en1, en2 , ld: in std_logic;
         addr1 , addr2 : in std_logic_vector (11 downto 0);
         wr_en1 : in std_logic;
         din1 : in std_logic_vector (15 downto 0);
